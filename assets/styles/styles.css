@@ -1,3 +1,21 @@
+/* 
+#f1ffd5
+#d6e6b7
+#a35481
+#b8136f
+#ea0063
+*/
+
+/*
+#fdcfbf
+#feb89f
+#e23d75
+#5f0d3b
+#742365
+*/
+
+/* PROPIEDADES GENERALES */
+
 *{
     padding: 0%;
     margin: 0%;
@@ -7,31 +25,60 @@
 body{
     display: flex;
     flex-direction: column;
-    max-width: 100vw;
-    max-height: 100vh;
+    width: 100vw;
+    height: 100vh;
 }
 
 header{
-    max-height: 25vh;
-    max-width: 100vw;
-    border: 2px solid orange;
+    height: 20vh;
+    width: 100vw;
+    padding: 1rem;
+    flex-wrap: wrap;
+    border-bottom: 1px solid rgba(146, 146, 146, 0.514);
+    background-color: #fdcfbf;
+}
+
+nav{
+    display: flex;
+    justify-content: flex-end;
+    width: 35vw;
+    padding: 1rem;
+    gap: 5%;
+    flex-wrap: wrap;
+}
+
+main{
+    min-height: 80vh;
+    width: 100%;
+    flex-wrap: wrap;
+    background-color: #feb89f;
 }
 
 footer{
-    background-color: rgb(117, 117, 117);
+    height: 10vh;
+    width: 100%;
+    background-color: #5f0d3b;
     color: white;
-    max-width: 100vw;
-    max-height: 25vh;
-    border: 2px solid rebeccapurple;
 }
+
 
 .containers-row{
     display: flex;
+    flex-wrap: wrap;
 }
 
 .containers-col{
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.containers-min-menu{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 5vh;
+    flex-wrap: wrap;
 }
 
 .jc-s{
@@ -58,44 +105,117 @@ footer{
     justify-content: space-evenly;
 }
 
+/* >>>>>>>>><<<<<<<<<< */
+
+/* CLASES GENERALES */
+
 .logo{
     max-width: 20%;
+    filter: drop-shadow(10px 8px 5px #754aaa);
 }
 
-.img-but{
-    max-width: 10%;
+.but-nav{
+    border-radius: 15px 0px;
+    font-weight: bold;
+    padding: 10px 15px;
+    text-decoration: none;
+    background-color: #ffbb00;
+    filter: drop-shadow(15px 8px 10px #f0c482);
+}
+
+.but-search{
+    width: 10%;
+}
+
+.img-but-search{
+    max-width: 25%;
+}
+
+.icons{
+    max-width: 2%;
+}
+
+.nav-bot{
+    margin-top: 1%;
+}
+
+.nav-bot-title{
+    display: flex;
+    align-items: center;
+    text-decoration: underline;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.nav-bot-but{
+    border-radius: 50%;
+    padding: 1rem;
+    border: none;
+}
+
+.nav-bot-but:hover{
+    transition: 1s;
+    background-color: black;
 }
 
 .card{
-    margin: 1%;
+    margin-top: 1%;
     display: flex;
     flex-direction: column;
     width: 20%;
     border: 1px solid black;
     border-radius: 15px 15px 0px 0px;
-    background-color: aliceblue;
+    background-color: #e25886;
+    -webkit-box-shadow: -2px 8px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: -2px 8px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: -2px 8px 5px 0px rgba(0,0,0,0.75);
+}
+
+
+/* >>>>>>>>><<<<<<<<<< */
+
+/* CLASES HOME */
+
+.card-img-home{
+    border-radius: 15px 15px 0px 0px;
+    height: 55%;
+}
+
+.card-title{
     text-align: center;
+    padding: 2%;
+
 }
 
-.card img{
-    padding-top: 1%;
-    padding-bottom: 1%;
-    margin: auto;
-    height: 100px;
-    max-width: 80%;
+.card-but-home{
+    padding: 2%;
+    border-radius: 15px 0px;
+    color: white;
+    text-align: center;
+    background-color: rgb(247, 56, 56);
+    -webkit-box-shadow: -6px -3px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: -6px -3px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: -6px -3px 5px 0px rgba(0,0,0,0.75);
 }
 
-.icons{
-    max-width: 3%;
-}
+/* CLASES UPCOMING-EVENTS */
 
-.containers-row form{
-    margin: auto;
-    padding: 1%;
-}
+/* CLASES PAST-EVENTS */
+
+/* CLASES CONTACT */
 
 .card-form{
     border: 1px solid black;
     align-content: center;
     width: 40%;
 }
+
+/* CLASES DETAILS */
+
+.card-details{
+    border: 1px solid black;
+    align-content: center;
+    width: 40%;
+}
+
+/* CLASES STATS */
