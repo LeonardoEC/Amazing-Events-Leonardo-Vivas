@@ -3,3 +3,99 @@
     margin: 0%;
     box-sizing: border-box;
 }
+
+body{
+    display: flex;
+    flex-direction: column;
+    max-width: 100vw;
+    max-height: 100vh;
+}
+
+header{
+    max-height: 25vh;
+    max-width: 100vw;
+    border: 2px solid orange;
+}
+
+footer{
+    background-color: rgb(117, 117, 117);
+    color: white;
+    max-width: 100vw;
+    max-height: 25vh;
+    border: 2px solid rebeccapurple;
+}
+
+.containers-row{
+    display: flex;
+}
+
+.containers-col{
+    display: flex;
+    flex-direction: column;
+}
+
+.jc-s{
+    justify-content: start;
+}
+
+.jc-c{
+    justify-content: center;
+}
+
+.jc-e{
+    justify-content: end;
+}
+
+.jc-sa{
+    justify-content: space-around;
+}
+
+.jc-btw{
+    justify-content: space-between;
+}
+
+.jc-ey{
+    justify-content: space-evenly;
+}
+
+.logo{
+    max-width: 20%;
+}
+
+.img-but{
+    max-width: 10%;
+}
+
+.card{
+    margin: 1%;
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    border: 1px solid black;
+    border-radius: 15px 15px 0px 0px;
+    background-color: aliceblue;
+    text-align: center;
+}
+
+.card img{
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin: auto;
+    height: 100px;
+    max-width: 80%;
+}
+
+.icons{
+    max-width: 3%;
+}
+
+.containers-row form{
+    margin: auto;
+    padding: 1%;
+}
+
+.card-form{
+    border: 1px solid black;
+    align-content: center;
+    width: 40%;
+}
