@@ -71,6 +71,12 @@ footer{
     flex-wrap: wrap;
 }
 
+.containers-nav-top{
+    display: table-column;
+    flex-direction: column;
+    border: 2px solid springgreen;
+}
+
 .containers-min-menu{
     display: flex;
     flex-direction: row;
@@ -141,7 +147,7 @@ footer{
 /* CLASES GENERALES */
 
 .logo{
-    max-width: 50%;
+    width: 30%;
     filter: drop-shadow(10px 8px 5px #754aaa);
 }
 
