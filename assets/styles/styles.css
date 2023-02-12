@@ -31,8 +31,7 @@ body{
 
 header{
     height: 20vh;
-    width: 100vw;
-    padding: 1rem;
+    width: 100%;
     flex-wrap: wrap;
     border-bottom: 1px solid rgba(146, 146, 146, 0.514);
     background-color: #fdcfbf;
@@ -75,10 +74,14 @@ footer{
 
 .containers-min-menu{
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     height: 5vh;
     flex-wrap: wrap;
+}
+
+.min-menu-search{
+    border: 2px solid red;
 }
 
 .jc-s{
@@ -103,6 +106,10 @@ footer{
 
 .jc-ey{
     justify-content: space-evenly;
+}
+
+.al-cen{
+    align-content: center;
 }
 
 /* >>>>>>>>><<<<<<<<<< */
@@ -159,22 +166,18 @@ footer{
 }
 
 .card{
+    width: 25rem;
     margin-top: 1%;
     display: flex;
     flex-direction: column;
-    width: 20%;
     border: 1px solid black;
     border-radius: 15px 15px 0px 0px;
     background-color: #e25886;
     -webkit-box-shadow: -2px 8px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: -2px 8px 5px 0px rgba(0,0,0,0.75);
     box-shadow: -2px 8px 5px 0px rgba(0,0,0,0.75);
+    color: white;
 }
-
-
-/* >>>>>>>>><<<<<<<<<< */
-
-/* CLASES HOME */
 
 .card-img-home{
     border-radius: 15px 15px 0px 0px;
@@ -184,10 +187,18 @@ footer{
 .card-title{
     text-align: center;
     padding: 2%;
+}
 
+.card-but-body{
+    height: 100%;
+    align-content: end;
 }
 
 .card-but-home{
+    margin-top: 1%;
+    margin-bottom: 1%;
+    height: 2.5rem;
+    width: 5rem;
     padding: 2%;
     border-radius: 15px 0px;
     color: white;
@@ -197,6 +208,13 @@ footer{
     -moz-box-shadow: -6px -3px 5px 0px rgba(0,0,0,0.75);
     box-shadow: -6px -3px 5px 0px rgba(0,0,0,0.75);
 }
+
+
+/* >>>>>>>>><<<<<<<<<< */
+
+/* CLASES HOME */
+
+
 
 /* CLASES UPCOMING-EVENTS */
 
