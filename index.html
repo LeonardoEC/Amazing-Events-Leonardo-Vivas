@@ -6,28 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/styles/styles.css">
     <link rel="shortcut icon" href="assets/img/favicon-AmazingEvents.ico" type="image/x-icon">
-    <title>Document</title>
+    <title>Home</title>
 </head>
 <body>
-    <header class="containers-nav-top">
-        <figure>
+
+    <header class="containers-header">
+        <figure class="container-logo">
             <img class="logo" src="assets/img/Logo Amazing Events.png" alt="imagen rota">
         </figure>
-        <nav>
+        <nav class="containers-nav-top">
             <a class="but-nav" href="#">Home</a>
             <a class="but-nav" href="pages/upcoming-events.html">Upcoming Events</a>
             <a class="but-nav" href="pages/past-events.html">Past Events</a>
             <a class="but-nav" href="pages/contact-us.html">Contact</a>
             <a class="but-nav" href="pages/stats.html">Stats</a>
         </nav>
-        <div class="containers-row nav-bot jc-sa">
-            <button class="nav-bot-but"><a href="pages/stats.html"><</a></button>
+        <div class="containers-nav-bot">
+            <button class="nav-bot-but"><</button>
             <h1 class="nav-bot-title">Home</h1>
-            <button class="nav-bot-but"><a href="pages/upcoming-events.html">></a></button>
+            <button class="nav-bot-but">></button>
         </div>
     </header>
-
-    <main>
+    
+    <main class="container-main">
         <section class="containers-min-menu">
             <form action="">
                 <label for="">
@@ -53,51 +54,52 @@
                 <label for="">
                     <input type="search">
                 </label>
-                <button class="but-search"><img class="img-but-search" src="assets/img/buscar.png" alt=""></button>
+                <button class="but-search"><img class="but-search-img" src="assets/img/buscar.png" alt=""></button>
             </form>
         </section>
 
         <section class="containers-card">
-            <article class="card ali-cent">
-                <img class="card-img-home" src="assets/img/Music_Concert.jpg" alt="">
+            <article class="card">
+                <img class="card-img" src="assets/img/Music_Concert.jpg" alt="">
                 <h2 class="card-title">Title</h2>
                 <p>texto descriptivo</p>
-                <div class="containers-row card-but-body jc-sa">
+                <div class="card-bot-body">
                     <p>prices $0000</p>
-                    <button class="card-but-home">ver mas...</button>
+                    <button class="card-bot-but">ver mas...</button>
+                </div>
+            </article>
+
+            <article class="card">
+                <img class="card-img" src="assets/img/Costume_Party.jpg" alt="">
+                <h2 class="card-title">Title</h2>
+                <p>texto descriptivo</p>
+                <div class="card-bot-body">
+                    <p>prices $0000</p>
+                    <button class="card-bot-but">ver mas...</button>
                 </div>
             </article>
             <article class="card">
-                <img class="card-img-home" src="assets/img/Costume_Party.jpg" alt="">
+                <img class="card-img" src="assets/img/Food_Fair.jpg" alt="">
                 <h2 class="card-title">Title</h2>
                 <p>texto descriptivo</p>
-                <div class="containers-row card-but-body jc-sa">
+                <div class="card-bot-body">
                     <p>prices $0000</p>
-                    <button class="card-but-home">ver mas...</button>
+                    <button class="card-bot-but">ver mas...</button>
                 </div>
             </article>
             <article class="card">
-                <img class="card-img-home" src="assets/img/Food_Fair.jpg" alt="">
+                <img class="card-img" src="assets/img/Marathon.jpg" alt="">
                 <h2 class="card-title">Title</h2>
                 <p>texto descriptivo</p>
-                <div class="containers-row card-but-body jc-sa">
+                <div class="card-bot-body">
                     <p>prices $0000</p>
-                    <button class="card-but-home">ver mas...</button>
-                </div>
-            </article>
-            <article class="card">
-                <img class="card-img-home" src="assets/img/Marathon.jpg" alt="">
-                <h2 class="card-title">Title</h2>
-                <p>texto descriptivo</p>
-                <div class="containers-row card-but-body jc-sa">
-                    <p>prices $0000</p>
-                    <button class="card-but-home">ver mas...</button>
+                    <button class="card-bot-but">ver mas...</button>
                 </div>
             </article>
         </section>
     </main>
 
-    <footer class="containers-row jc-sa">
+    <footer class="containers-footer">
         <div class="footer-top">
             <img class="icons" src="assets/img/instagram.png" alt="">
             <img class="icons" src="assets/img/facebook.png" alt="">
@@ -107,5 +109,6 @@
             <h2>Cohort</h2>
         </div>
     </footer>
+    <script src="assets/script/main.js"></script>
 </body>
 </html>
