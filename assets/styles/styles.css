@@ -48,6 +48,7 @@ body{
 }
 
 .but-nav{
+    color: #754aaa;
     text-align: center;
     width: 10rem;
     border-radius: 15px 0px;
@@ -113,6 +114,7 @@ body{
 }
 
 .containers-card{
+    margin-top: 6%;
     padding: 2rem;
     display: flex;
     flex-direction: row;
@@ -148,7 +150,12 @@ body{
 
 .card-title{
     text-align: center;
-    padding: 2rem;
+    padding: 1rem;
+}
+
+.card-desciption{
+    text-align: center;
+    padding: 5%;
 }
 
 .card-bot-body{
@@ -156,6 +163,8 @@ body{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    margin: 3%;
+    flex-wrap: wrap;
 }
 
 .card-bot-but{
@@ -256,28 +265,34 @@ body{
     justify-content: center;
     align-items: center;
     background-color: #742365;
+    flex-wrap: wrap;
 }
 
 .card-details{
     display: flex;
     flex-direction: row;
     border: 1px solid black;
-    width: 40%;
-    height: 60%;
+    width: 50%;
+    height: 30rem;
     align-items: center;
     justify-content: space-around;
     border-radius: 15px;
     background-color: #feb89f;
+    flex-wrap: wrap;
 }
 
 .card-details-img{
-    padding: 2rem;
+    padding: 1rem;
+}
+
+.card-details-img img{
+    width: 18rem;
 }
 
 .card-details-text{
     display: flex;
     flex-direction: column;
-    padding: 5rem;
+    padding: 5%;
     background-color: #fdcfbf;
     border-radius: 15px;
     border: 2px solid #e23d7442 ;
@@ -292,17 +307,20 @@ body{
 /* CLASES STATS */
 
 .container-stats{
-    height: 66.7vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #742365;
+    width: 100%;
+    flex-wrap: wrap;
 }
 
 .card-stats{
+    margin: 5%;
     height: 25rem;
-    width: 50rem;
+    width: 45rem;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -319,7 +337,7 @@ body{
 }
 
 .card-stats-rw{
-    gap: 5%;
+    gap: 2%;
     text-align: center;
     margin: 1.5rem;
     display: flex;
@@ -364,6 +382,42 @@ body{
 
     .card-form{
         width: 17rem;
+    }
+
+    .card-details{
+        display: flex;
+        flex-direction: column;
+        width: 16rem;
+        height: 35rem;
+
+    }
+
+    .card-details-img img{
+        width: 15rem;
+    }
+
+
+    .card-stats{
+        height: 90%;
+        width: 90%;
+    }
+
+    .card-stats-title{
+        text-align: center;
+        background-color: rgba(220, 220, 220, 0.404);
+        border-radius: 15px;
+    }
+
+    .card-stats-rw th{
+        border-radius: 15px;
+        background-color: rgba(220, 220, 220, 0.212);
+        width: 40%;
+    }
+
+    .card-stats-rw td{
+        border-radius: 15px;
+        background-color: rgba(220, 220, 220, 0.212);
+        width: 40%;
     }
 
 }
