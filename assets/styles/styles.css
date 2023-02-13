@@ -331,6 +331,7 @@ body{
 
 .card-stats-title{
     text-align: center;
+    font-weight: bold;
     font-size: 2rem;
     background-color: rgba(220, 220, 220, 0.404);
     border-radius: 15px;
@@ -387,7 +388,7 @@ body{
     .card-details{
         display: flex;
         flex-direction: column;
-        width: 16rem;
+        width: 90%;
         height: 35rem;
 
     }
