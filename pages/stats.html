@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,55 +8,65 @@
     <link rel="shortcut icon" href="../assets/img/favicon-AmazingEvents.ico" type="image/x-icon">
     <title>Stats</title>
 </head>
-
 <body>
-    <header class="containers-header">
-        <figure class="container-logo">
-            <img class="logo" src="../assets/img/Logo-Amazing-Events.png" alt="logo">
-        </figure>
-        <nav class="containers-nav-top">
-            <a class="but-nav" href="../index.html">Home</a>
-            <a class="but-nav" href="upcoming-events.html">Upcoming Events</a>
-            <a class="but-nav" href="past-events.html">Past Events</a>
-            <a class="but-nav" href="contact-us.html">Contact</a>
-            <a class="but-nav" href="#">Stats</a>
-        </nav>
-        <div class="containers-nav-bot">
-            <button class="nav-bot-but">
-                < </button>
-                    <h1 class="nav-bot-title">Stats</h1>
-                    <button class="nav-bot-but">></button>
+    <header class="container-header">
+        <div class="header-top">
+            <figure class="container-header-logo-top">
+                <img class="logo-header-top" src="../assets/img/favicon-AmazingEvents.ico" alt="">
+            </figure>
+            <nav class="container-nav">
+                <a class="but-nav-top" href="../index.html">Home</a>
+                <a class="but-nav-top" href="upcoming-events.html">Upcoming Events</a>
+                <a class="but-nav-top" href="past-events.html">Past Events</a>
+                <a class="but-nav-top" href="contact-us.html">Contact</a>
+                <a class="but-nav-top active" href="#">Stats</a>
+            </nav>
+            <figure class="container-header-logo-top">
+                <img class="logo-header-top" src="../assets/img/favicon-AmazingEvents.ico" alt="">
+            </figure>
+        </div>
+        <div class="header-center">
+            <figure class="container-header-logo-center">
+                <img class="logo-header-cent" src="../assets/img/Logo-Amazing-Events.png" alt="">
+            </figure>
+        </div>
+        <div class="header-bot">
+            <button class="heard-bot-but"><</button>
+            <h1 class="heard-bot-title">Stats</h1>
+            <button class="heard-bot-but">></button>
         </div>
     </header>
 
-    <main class="container-stats">
-        <section class="card-stats">
-            <h2 class="card-stats-title">Events Statistics</h2>
-            <table>
-                <tbody>
-                    <tr class="card-stats-rw">
-                        <th>Events with the highest percentage of attendance</th>
-                        <th>Events with the lowest percentage of attendance</th>
-                        <th>Event with larger capacity</th>
+    <main class="container-main">
+        <section class="container-stats">
+            <table class="stats-table">
+                <thead>
+                    <tr>
+                        <th colspan="3">
+                            Events statistics
+                        </th>
                     </tr>
-                </tbody>
-            </table>
-
-            <h2 class="card-stats-title">Upcoming events statistics by category</h2>
-            <table>
+                </thead>
                 <tbody>
-                    <tr class="card-stats-rw">
+                    <tr>
+                        <td>Events with the highest percentage of attendance</td>
+                        <td>Events with the lowest percentage of attendance</td>
+                        <td>Event with larger capacity</td>
+                    </tr>
+                    <th colspan="3">
+                        Upcoming events statistics by category
+                    </th>
+                    <tr>
                         <td>Categories</td>
                         <td>Revenues</td>
                         <td>Percentage of attendance</td>
                     </tr>
-                </tbody>
-            </table>
-
-            <h2 class="card-stats-title">Past Eventes statistics by category</h2>
-            <table>
-                <tbody>
-                    <tr class="card-stats-rw">
+                    <tr>
+                        <th colspan="3">
+                            Past Eventes statistics by category
+                        </th>
+                    </tr>
+                    <tr>
                         <td>Categories</td>
                         <td>Revenues</td>
                         <td>Percentage of attendance</td>
@@ -67,16 +76,23 @@
         </section>
     </main>
 
-    <footer class="containers-footer">
-        <div class="footer-top">
-            <img class="icons" src="../assets/img/instagram.png" alt="instagram">
-            <img class="icons" src="../assets/img/facebook.png" alt="facebook">
-            <img class="icons" src="../assets/img/whatsapp.png" alt="whatsapp">
+    <footer class="container-footer">
+        <div class="footer-left">
+            <figure>
+                <img class="footer-img" src="../assets/img/instagram.png" alt="">
+            </figure>
+            <figure>
+                <img class="footer-img" src="../assets/img/facebook.png" alt="">
+            </figure>
+            <figure>
+                <img class="footer-img" src="../assets/img/whatsapp.png" alt="">
+            </figure>
         </div>
-        <div class="footer-bot">
-            <h2>Cohort</h2>
+        <div class="footer-right">
+            <h3>
+                Cohort
+            </h3>
         </div>
     </footer>
 </body>
-
 </html>
