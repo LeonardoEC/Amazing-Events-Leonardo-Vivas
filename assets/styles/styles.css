@@ -228,8 +228,8 @@ a{
 }
 
 .card:hover{
-    transition: 1s;
-    transform: scale(1.1,1.1);
+    transition: 0.8s;
+    transform: translateY(-10px)
 }
 
 .card-body-img{
@@ -348,6 +348,7 @@ a{
     border: 1px solid rgba(128, 128, 128, 0.452);
     border-radius: 15px;
     width: 100%;
+    padding: 2%;
 }
 
 
@@ -368,8 +369,12 @@ a{
 }
 
 .form-but:hover{
-    transition: 1s;
-    transform: scale(1.3,1.3);
+    cursor: pointer;
+    background: linear-gradient(90deg, 
+    rgba(94, 94, 94, 0.397) 0%, 
+    rgba(94, 94, 94, 0.329) 25%, 
+    rgba(94, 94, 94, 0.329) 75%, 
+    rgba(94, 94, 94, 0.397) 100%);
 }
 
 /* >>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<< */
