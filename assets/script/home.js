@@ -3,8 +3,6 @@
 function createcards(eventos){
 
     let contenedorHome = document.getElementById("container-main-bot-home")
-    let contenedorPast = document.getElementById("container-main-bot-past-event")
-    let contenedorUpcoming = document.getElementById("container-main-bot-upcoming-events")
 
     let card = ""
     for(let evento of eventos){

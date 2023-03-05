@@ -6,7 +6,7 @@ function createcards(eventos){
     for(let evento of eventos){
 
         if(evento.date < data.currentDate){
-            card += `<section class="card">
+            card += `<section id="card">
                         <figure>
                             <img class="card-body-img" src="${evento.image}" alt="">
                         </figure>

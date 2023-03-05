@@ -1,7 +1,5 @@
-function createcards(eventos){
+function createcards_UpEvent(eventos){
 
-    let contenedorHome = document.getElementById("container-main-bot-home")
-    let contenedorPast = document.getElementById("container-main-bot-past-event")
     let contenedorUpcoming = document.getElementById("container-main-bot-upcoming-events")
 
     let card = ""
@@ -9,7 +7,7 @@ function createcards(eventos){
 
         if(evento.date > data.currentDate){
 
-            card += `<section class="card">
+            card += `<section id="card">
                         <figure>
                             <img class="card-body-img" src="${evento.image}" alt="">
                         </figure>
@@ -30,4 +28,4 @@ function createcards(eventos){
     contenedorUpcoming.innerHTML = card
 }
 
-createcards(data.events)
+createcards_UpEvent(data.events)
