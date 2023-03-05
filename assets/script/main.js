@@ -58,7 +58,7 @@ function createCategory(evento) {
 
     let bform = ""
     for (let check of evento) {
-        bform += `<label id="label-switch" for="${check}"><input class="check-box" type="checkbox" name="${check}" id="${check}" value=${check}> ${check}</label> `
+        bform += `<label id="label-switch" for="category[]"><input class="check-box" type="checkbox" name="${check}" id="${check}" value=${check}> ${check}</label> `
     }
 
     bodyform.innerHTML = bform
@@ -72,7 +72,7 @@ createCategory(filtCategory(filtEvent(data.events)))
 let contenedorHome = document.getElementById("container-main-bot-home")
 
 function createcards(evento) {
-    //console.log(evento)
+    
     let card = ""
     for (let eventos of evento) {
 
@@ -88,7 +88,7 @@ function createcards(evento) {
                     </div>
                     <div class="card-body-bot">
                         <p>$ ${eventos.price}</p>
-                        <button class="card-but"><a href="pages/details.html">More Info</a></button>
+                        <button class="card-but"><a href="pages/details.html?id=${eventos._id}">More Info</a></button>
                     </div>
                 </section>`
     }
@@ -106,89 +106,48 @@ function barSearch(evento) {
         datoInput = e.target.value.toLowerCase()
         
         let filtro = evento.filter(f => f.category.toLowerCase().includes(datoInput) || f.name.toLowerCase().includes(datoInput) || f.date.includes(datoInput) )
-        console.log(filtro)
-        contenedorHome.innerHTML = createcards(filtro)
-        
+        if(filtro.length > 0){
+            contenedorHome.innerHTML = createcards(filtro)
+        }
+        else{
+            contenedorHome.innerHTML = `<section class="container-search-fail">
+            <h3 class="title-search-fail">Search Failed</h3>
+            <img class="img-search-fail" src="assets/img/pngwing.com.png" alt="">
+            <p class="text-search-fail">sorry but "${datoInput}" not found</p>
+            <p class="text-search-fail">
+                Try to search by the title, date or category of the event
+                example: Food or Jurassic Park
+            </p>
+        </section>`
+        }
     })
     
 }
 
 barSearch(filtEvent(data.events))
 
-// codigo muerto
-        //|| filtName(evento).includes(datoInput) || filtDate(evento).includes(datoInput)
-
-        /*
-        if (filtCategory(evento).includes(datoInput)) {
-
-            console.log(filtCategory(evento))
-            
-            let morevent = []
-            morevent.push(evento)
-            console.log(morevent)
-            let card = ""
-            for (let x of evento) {
-                console.log(x)
-                card += `<section id="card">
-                    <figure>
-                        <img class="card-body-img" src="${x.image}" alt="">
-                    </figure>
-                    <div class="card-body-top">
-                        <h2 class="card-title">${x.name}</h2>
-                        <p class="card-category">Category: ${x.category}</p>
-                        <p class="card-date">${x.date}</p>
-                        <p class="card-descr">${x.description}</p>
-                    </div>
-                    <div class="card-body-bot">
-                        <p>$ ${x.price}</p>
-                        <button class="card-but"><a href="pages/details.html">More Info</a></button>
-                    </div>
-                </section>`
-            }
-            contenedorHome.innerHTML = card
-        }
-        */
 
 /* checkbox */
 
 function checkboxCategory(evento) {
     let checkboxes = document.querySelectorAll("input[type=checkbox]")
-    let checked = []
-
-    console.log(evento)
+    
 
     for (let checkbox of checkboxes) {
-        checkbox.addEventListener("change", () => {
+        checkbox.addEventListener("click", (e) => {
 
-            //console.log(checkbox.value)
-
-            //console.log(filtCategory(data.event))
-            if(checkbox.target.checked){
-                controlador = evento.filter( c => c.category.includes(checkbox.value))
-                console.log(controlador)
+            if(e.target.checked){
+                let controlador = evento.filter( c => c.category.includes(e.target.value))
                 contenedorHome.innerHTML = createcards(controlador)
             }
-
-            //appet separar por funciones/checker
-
-            /*
-            if (event.target.checked) {
-                checked.push(event.target.value)
-
-
+            else{
+                contenedorHome.innerHTML = createcards(evento)
             }
-            //crear un eliminador para el array
-            else {
-                checked.pop()
-            }
-            //console.log(checked)
-            */
-        })// metodo set
+        })
     }
-
 }
 
-checkboxCategory(data.events)
+checkboxCategory(filtEvent(data.events))
 
 
 
