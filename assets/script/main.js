@@ -58,7 +58,9 @@ function createCategory(evento) {
 
     let bform = ""
     for (let check of evento) {
-        bform += `<label id="label-switch" for="category[]"><input class="check-box" type="checkbox" name="${check}" id="${check}" value=${check}> ${check}</label> `
+        bform += `
+        <label id="label-switch" for="category[]"><input class="check-box" type="checkbox" name="${check}" id="${check}" value=${check}> ${check}</label>
+        `
     }
 
     bodyform.innerHTML = bform
@@ -129,13 +131,52 @@ barSearch(filtEvent(data.events))
 
 /* checkbox */
 
-function checkboxCategory(evento) {
+let checked = []
+
+function checkboxCategory() {
+
     let checkboxes = document.querySelectorAll("input[type=checkbox]")
     
-
     for (let checkbox of checkboxes) {
         checkbox.addEventListener("click", (e) => {
+            
+            if(e.target.checked){
+                checked.push(e.target.value)
+                EventsFilterByCategory(data.events)
+            }else{
+                checked = checked.filter(notcheck => notcheck !== e.target.value)
+                EventsFilterByCategory(data.events)
+            }
+            //console.log(checked)
+        })
+    }
+}
 
+
+function EventsFilterByCategory(eventos){
+
+    //console.log(eventos)
+    //console.log(checked)
+    if(checked.length == 0){
+        contenedorHome.innerHTML = createcards(eventos)
+    }else{
+        let rencheck = eventos.filter(evento => checked.includes(evento.category))
+        contenedorHome.innerHTML = createcards(rencheck)
+    }
+}
+
+
+checkboxCategory()
+
+
+
+
+
+
+/*
+let test = e.target().querySelectorAll("input[type=checkbox]")
+            console.log(test)
+            
             if(e.target.checked){
                 let controlador = evento.filter( c => c.category.includes(e.target.value))
                 contenedorHome.innerHTML = createcards(controlador)
@@ -143,16 +184,12 @@ function checkboxCategory(evento) {
             else{
                 contenedorHome.innerHTML = createcards(evento)
             }
-        })
-    }
-}
+*/
 
-checkboxCategory(filtEvent(data.events))
+/*
+for(x of checked){
+                let confirmador = []
+                confirmador.push(x)
 
-
-
-
-
-
-
-
+            }
+*/
