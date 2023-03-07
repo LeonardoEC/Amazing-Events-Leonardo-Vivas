@@ -8,6 +8,7 @@ const search = document.getElementById("serach")
 let dataInput = ""
 let filtroSerach = []
 let checked = []
+let filtroCheck = [] 
 //funciones de filtrado
 function categoryFilter(evento) {
     const categorysfilter = evento.map(eventos => eventos.category)
@@ -19,25 +20,25 @@ function categoryFilter(evento) {
     }, [])
     return category
 }
-
+//-----------------------------------------------
 // Buscador
 search.addEventListener("keyup", (e) => {
     dataInput = e.target.value.toLowerCase()
-    filtroSerach = events.filter(f => f.category.toLowerCase().includes(dataInput) 
-                                || f.name.toLowerCase().includes(dataInput) 
-                                || f.date.includes(dataInput))
+    
+    renderFilter()
 })
 
 // Checkbox
 formCheck.addEventListener("click", e =>{
     if(e.target.checked){
-        checked.push(e.target.value.toLowerCase())
+        checked.push(e.target.value)
     }
     else{
         checked = checked.filter(notCheck => notCheck !== e.target.value)
     }
-    
+    renderFilter()
 })
+//---------------------------------------------
 
 //funciones de render
 function createCategory(evento) {
@@ -79,15 +80,47 @@ function renderFilter(){
     //console.log(checked.includes("food"))
     //console.log(checked)
     //console.log(filtroSerach)
-    //console.log(checked.includes(filtroSerach.category))
+    //console.log(checked.includes(dataInput))
     //console.log(filtroSerach.includes(checked))
-}
 
+    //filtrar searh
+    filtroSerach = events.filter(f => f.category.toLowerCase().includes(dataInput) 
+    || f.name.toLowerCase().includes(dataInput) 
+    || f.date.includes(dataInput))
+
+    //filtroCheck
+    filtroCheck = events.filter(evento => checked.includes(evento.category))
+    console.log(filtroCheck);
+
+    //renderCard
+    
+    if(filtroSerach.length > 0){
+        contenedorHome.innerHTML = createcards(filtroSerach)
+        if(checked.length > 0){
+            contenedorHome.innerHTML = createcards(filtroCheck)
+        }
+    }else if(filtroSerach.length == 0){
+        contenedorHome.innerHTML = `<section class="container-search-fail">
+        <h3 class="title-search-fail">Search Failed</h3>
+        <img class="img-search-fail" src="assets/img/pngwing.com.png" alt="image">
+        <p class="text-search-fail">sorry but "${dataInput}" not found</p>
+        <p class="text-search-fail">
+            Try to search by the title, date or category of the event
+            example: Food or Jurassic Park
+        </p>
+    </section>`
+    }else if(checked.length > 0){
+        contenedorHome.innerHTML = createcards(filtroCheck)
+    }
+    
+   
+    
+    
+
+}
 
 
 // render
 createCategory(categoryFilter(events))
-contenedorHome.innerHTML = createcards(events)
-
 renderFilter()
 
