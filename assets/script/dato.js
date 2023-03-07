@@ -448,21 +448,5 @@ let data ={
     ]
   }
 
-  const containerCards = document.getElementById('containerHome')
-
-  function createCard(){
-    let cards = ''
-    for (const event of arrayEvents) {
-        cards += `<div class="card bg-dark bg-gradient text-white mb-5" style="width: 16rem;">
-        <img src="${events.image}" class="card-img-top p-1" style="height: 10rem;" alt="Cinema"/>
-        <div class="card-body text-center">
-            <h5 class="card-title fw-bold">${events.name}</h5>
-            <p class="card-text mb-4">${events.description}</p>
-            <span class="me-5">Price $ ${price}</span>
-            <a href="#" class="btn btn-outline-light card-button">Details</a>
-        </div>
-    </div>`
-    }
-    return cards
-  } 
+const events = data.events
 
