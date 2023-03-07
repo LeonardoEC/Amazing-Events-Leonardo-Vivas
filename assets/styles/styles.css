@@ -22,7 +22,7 @@
         flex-direction: column;
     }
 
-    #container-main{
+    .container-main{
         flex-direction: column;
         align-items: center;
     }
@@ -157,7 +157,7 @@ a{
 
 /* >>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<< */
 
-#container-main{
+.container-main{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -183,7 +183,7 @@ a{
     border-radius: 100px;
     margin: 2% 0%;
 }
-
+/* modificar - contenedor de checkboxs */
 #main-form{
     width: 100%;
     display: flex;

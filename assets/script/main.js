@@ -1,11 +1,10 @@
 // Variables
-let contenedorHome = document.getElementById("container-main-bot-home") // Contenedor de pagina principal
-let search = document.getElementById("serach") // barra de navegacion
-let checked = [] // Almacenador de valores checkboxs confirmados
-let valueSearch = []
+let contenedorHome = document.getElementById("container-main-bot-home")
+let search = document.getElementById("serach") 
+let checked = [] 
+let filtro
+let datoInput
 
-// Filtros
-// Esta funcion filtra todos los eventos por categorias y devuelve solamente las categorias unificadas - No modificar
 function categoryFilter(evento) {
 
     const categorysfilter = evento.map(eventos => eventos.category)
@@ -21,9 +20,7 @@ function categoryFilter(evento) {
 
 /* ---------------------------------------------------------------------------------------------------------------- */
 
-// Renders
-// Render CheckboxsCategoris
-// Esta funcion rendersia los checkboxs con la funcion categoryFilter - No modificar
+
 function createCategory(evento) {
     const bodyform = document.getElementById("main-form")
     let bform = ""
@@ -34,8 +31,7 @@ function createCategory(evento) {
     }
     bodyform.innerHTML = bform
 }
-// Cartas
-// Esta funcion renderisa todas las cartas - No modificiar
+
 function createcards(evento) {
 
     let card = ""
@@ -64,20 +60,24 @@ function createcards(evento) {
 
 // Buscador
 
-function barSearch(evento) {
+function barSearch(eventos) {
 
     search.addEventListener("keyup", (e) => {
-        let datoInput = e.target.value.toLowerCase()
-        let filtro = evento.filter(f => f.category.toLowerCase().includes(datoInput) || f.name.toLowerCase().includes(datoInput) || f.date.includes(datoInput))
+        datoInput = e.target.value.toLowerCase()
         
-        /* render - 
+        filtro = eventos.filter(f => f.category.toLowerCase().includes(datoInput) 
+                                    || f.name.toLowerCase().includes(datoInput) 
+                                    || f.date.includes(datoInput))
+        
+        EventsFilterByCategory(eventos)
+        
         if (filtro.length > 0) {
             contenedorHome.innerHTML = createcards(filtro)
         }
         else {
             contenedorHome.innerHTML = `<section class="container-search-fail">
             <h3 class="title-search-fail">Search Failed</h3>
-            <img class="img-search-fail" src="assets/img/pngwing.com.png" alt="">
+            <img class="img-search-fail" src="assets/img/pngwing.com.png" alt="image">
             <p class="text-search-fail">sorry but "${datoInput}" not found</p>
             <p class="text-search-fail">
                 Try to search by the title, date or category of the event
@@ -85,23 +85,41 @@ function barSearch(evento) {
             </p>
         </section>`
         }
-        */
         
     })
 }
 
-
-
 /* checkbox */
 function EventsFilterByCategory(eventos) {
 
+    //cartas 
+    /*
+    if (filtro.length > 0) {
+        contenedorHome.innerHTML = createcards(filtro)
+    } else if(filtro.length == 0) {
+        contenedorHome.innerHTML = `<section class="container-search-fail">
+        <h3 class="title-search-fail">Search Failed</h3>
+        <img class="img-search-fail" src="assets/img/pngwing.com.png" alt="image">
+        <p class="text-search-fail">sorry but "${datoInput}" not found</p>
+        <p class="text-search-fail">
+            Try to search by the title, date or category of the event
+            example: Food or Jurassic Park
+        </p>
+    </section>`
+    }
+    */
+
     if (checked.length == 0) {
         contenedorHome.innerHTML = createcards(eventos)
+
     } else {
         let rencheck = eventos.filter(evento => checked.includes(evento.category))
         contenedorHome.innerHTML = createcards(rencheck)
-    }
+    } 
+    
 }
+
+
 
 function checkboxCategory() {
     let checkboxes = document.querySelectorAll("input[type=checkbox]")
@@ -122,11 +140,10 @@ function checkboxCategory() {
 
 
 
+
 createCategory(categoryFilter(events))
 checkboxCategory()
-
-console.log(valueSearch)
+barSearch(events)
 
 contenedorHome.innerHTML = createcards(events)
-
 
