@@ -8,18 +8,10 @@ const search = document.getElementById("serach")
 let dataInput = ""
 let filtroSerach = []
 let checked = []
+let minchecked = []
 let filtroCheck = [] 
-//funciones de filtrado
-function categoryFilter(evento) {
-    const categorysfilter = evento.map(eventos => eventos.category)
-    const category = categorysfilter.reduce((c, e) => {
-        if (!c.includes(e)) {
-            c.push(e)
-        }
-        return c
-    }, [])
-    return category
-}
+
+
 //-----------------------------------------------
 // Buscador
 search.addEventListener("keyup", (e) => {
@@ -32,9 +24,11 @@ search.addEventListener("keyup", (e) => {
 formCheck.addEventListener("click", e =>{
     if(e.target.checked){
         checked.push(e.target.value)
+        minchecked.push(e.target.value.toLowerCase())
     }
     else{
         checked = checked.filter(notCheck => notCheck !== e.target.value)
+        minchecked = minchecked.filter(notCheck => notCheck !== e.target.value.toLowerCase())
     }
     renderFilter()
 })
@@ -53,7 +47,6 @@ function createCategory(evento) {
 }
 
 function createcards(evento) {
-
     let card = ""
     for (let eventos of evento) {
 
@@ -76,25 +69,131 @@ function createcards(evento) {
     return card
 }
 
-function renderFilter(){
-    //console.log(checked.includes("food"))
-    //console.log(checked)
-    //console.log(filtroSerach)
-    //console.log(checked.includes(dataInput))
-    //console.log(filtroSerach.includes(checked))
+function addcards(evento) {
+    evento.forEach(even => {let secction = document.createElement("section")
+        secction.setAttribute("id","card")
+        secction.innerHTML = `
+                            <figure>
+                                <img class="card-body-img" src="${even.image}" alt="">
+                            </figure>
+                            <div class="card-body-top">
+                                <h2 class="card-title">${even.name}</h2>
+                                <p class="card-category">Category: ${even.category}</p>
+                                <p class="card-date">${even.date}</p>
+                                <p class="card-descr">${even.description}</p>
+                            </div>
+                            <div class="card-body-bot">
+                                <p>$ ${even.price}</p>
+                                <button class="card-but"><a href="pages/details.html?id=${even._id}">More Info</a></button>
+                            </div>
+                            `
+        contenedorHome.appendChild(secction)
+    })
+}
 
-    //filtrar searh
+function deletcard(evento) {
+    evento.forEach(even => {let secction = document.createElement("section")
+        secction.setAttribute("id","card")
+        secction.innerHTML = 
+        contenedorHome.appendChild(secction)
+    })
+}
+
+function renderFilter(){
+
+    //filtrar searh --> Devuelve los nombres - fechas - categorias de lo ingresado en searchbar
     filtroSerach = events.filter(f => f.category.toLowerCase().includes(dataInput) 
     || f.name.toLowerCase().includes(dataInput) 
     || f.date.includes(dataInput))
-
-    //filtroCheck
+    //----------------------------------------------------------------------------//
+    //filtroCheck --> Devuelve los elementos chequeados
     filtroCheck = events.filter(evento => checked.includes(evento.category))
-    console.log(filtroCheck);
-
+    //---------------------------------------------------------------------------//
+    //filtroMiniCheck --> Devuelve los elementos chequeados en minuscula
+    filtroMiniCheck = events.filter(evento => minchecked.includes(evento.category.toLowerCase()))
+    //--------------------------------------------------------------------------//
+    //fitrloMixsto --> Devuelve una funcion de los 2 (no funciona el check)
+    filtroMixsto = events.filter(evento => minchecked.includes(evento.category.toLowerCase()) ||
+    evento.category.toLowerCase().includes(dataInput) 
+    || evento.name.toLowerCase().includes(dataInput) 
+    || evento.date.includes(dataInput))
+    //---------------------------------------------------------------------------//
+    console.log(filtroCheck)
     //renderCard
     
-    if(filtroSerach.length > 0){
+        if(filtroSerach.length > 0){
+            contenedorHome.innerHTML = createcards(filtroSerach)
+            let finalControl = filtroSerach.filter(e => e.category.includes(checked.toString()))
+            contenedorHome.innerHTML = createcards(finalControl)
+        } else if(filtroSerach == 0){
+            contenedorHome.innerHTML = `<section class="container-search-fail">
+                                        <h3 class="title-search-fail">Search Failed</h3>
+                                        <img class="img-search-fail" src="assets/img/pngwing.com.png" alt="image">
+                                        <p class="text-search-fail">sorry but "${dataInput}" not found</p>
+                                        <p class="text-search-fail">
+                                            Try to search by the title, date or category of the event
+                                            example: Food or Jurassic Park
+                                        </p>
+                                    </section>`
+        }
+    
+}
+
+
+// render
+createCategory(category)
+renderFilter()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+    if(filtroCheck.length > 0){
+        contenedorHome.innerHTML = createcards(filtroCheck)
+        if(filtroSerach.length < 34){
+            addcards(filtroSerach)
+        }
+    } else if(filtroCheck.length == 0){
+        createcards(events)
+    }
+    */
+
+
+
+
+
+
+    /*
+    if(filtroSerach.length > 0 ){
         contenedorHome.innerHTML = createcards(filtroSerach)
         if(checked.length > 0){
             contenedorHome.innerHTML = createcards(filtroCheck)
@@ -112,15 +211,5 @@ function renderFilter(){
     }else if(checked.length > 0){
         contenedorHome.innerHTML = createcards(filtroCheck)
     }
+    */
     
-   
-    
-    
-
-}
-
-
-// render
-createCategory(categoryFilter(events))
-renderFilter()
-

@@ -449,4 +449,17 @@ let data ={
   }
 
 const events = data.events
+const evName = events.map(e => e.name)
+const evDate = events.map(e => e.date)
+//--------------------//
+const categorysfilter = events.map(eventos => eventos.category)
+const category = categorysfilter.reduce((c, e) => {
+        if (!c.includes(e)) {
+            c.push(e)
+        }
+        return c
+    }, [])
+
+//-----------------//
+
 
