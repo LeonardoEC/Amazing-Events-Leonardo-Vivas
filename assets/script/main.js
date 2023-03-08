@@ -1,39 +1,50 @@
-// Variables
-let contenedorHome = document.getElementById("container-main-bot-home")
-let search = document.getElementById("serach") 
-let checked = [] 
-let filtro
-let datoInput
+// posiciones en el html
+const contenedorHome = document.getElementById("container-main-bot-home") 
+const formCheck = document.getElementById("main-form")
+// elementos HTML
+const search = document.getElementById("serach")
+// variables
+let dataInput = ""
+let filtroSerach = []
+let checked = []
+let minchecked = []
+let filtroCheck = [] 
 
-function categoryFilter(evento) {
+//-----------------------------------------------
+// Buscador
+search.addEventListener("keyup", (e) => {
+    dataInput = e.target.value.toLowerCase()
+    
+    renderFilter()
+})
 
-    const categorysfilter = evento.map(eventos => eventos.category)
+// Checkbox
+formCheck.addEventListener("click", e =>{
+    if(e.target.checked){
+        checked.push(e.target.value)
+        minchecked.push(e.target.value.toLowerCase())
+    }
+    else{
+        checked = checked.filter(notCheck => notCheck !== e.target.value)
+        minchecked = minchecked.filter(notCheck => notCheck !== e.target.value.toLowerCase())
+    }
+    renderFilter()
+})
+//---------------------------------------------
 
-    const category = categorysfilter.reduce((c, e) => {
-        if (!c.includes(e)) {
-            c.push(e)
-        }
-        return c
-    }, [])
-    return category
-}
-
-/* ---------------------------------------------------------------------------------------------------------------- */
-
-
+//funciones de render
 function createCategory(evento) {
-    const bodyform = document.getElementById("main-form")
+
     let bform = ""
     for (let check of evento) {
         bform += `
         <label id="label-switch" for="category[]"><input class="check-box" type="checkbox" name="${check}" id="${check}" value=${check}> ${check}</label>
         `
     }
-    bodyform.innerHTML = bform
+    formCheck.innerHTML = bform
 }
 
 function createcards(evento) {
-
     let card = ""
     for (let eventos of evento) {
 
@@ -56,94 +67,130 @@ function createcards(evento) {
     return card
 }
 
-/* ---------------------------------------------------------------------------------------------------------------- */
-
-// Buscador
-
-function barSearch(eventos) {
-
-    search.addEventListener("keyup", (e) => {
-        datoInput = e.target.value.toLowerCase()
-        
-        filtro = eventos.filter(f => f.category.toLowerCase().includes(datoInput) 
-                                    || f.name.toLowerCase().includes(datoInput) 
-                                    || f.date.includes(datoInput))
-        
-        EventsFilterByCategory(eventos)
-        
-        if (filtro.length > 0) {
-            contenedorHome.innerHTML = createcards(filtro)
-        }
-        else {
-            contenedorHome.innerHTML = `<section class="container-search-fail">
-            <h3 class="title-search-fail">Search Failed</h3>
-            <img class="img-search-fail" src="assets/img/pngwing.com.png" alt="image">
-            <p class="text-search-fail">sorry but "${datoInput}" not found</p>
-            <p class="text-search-fail">
-                Try to search by the title, date or category of the event
-                example: Food or Jurassic Park
-            </p>
-        </section>`
-        }
-        
+function addcards(evento) {
+    evento.forEach(even => {let secction = document.createElement("section")
+        secction.setAttribute("id","card")
+        secction.innerHTML = `
+                            <figure>
+                                <img class="card-body-img" src="${even.image}" alt="">
+                            </figure>
+                            <div class="card-body-top">
+                                <h2 class="card-title">${even.name}</h2>
+                                <p class="card-category">Category: ${even.category}</p>
+                                <p class="card-date">${even.date}</p>
+                                <p class="card-descr">${even.description}</p>
+                            </div>
+                            <div class="card-body-bot">
+                                <p>$ ${even.price}</p>
+                                <button class="card-but"><a href="pages/details.html?id=${even._id}">More Info</a></button>
+                            </div>
+                            `
+        contenedorHome.appendChild(secction)
     })
 }
 
-/* checkbox */
-function EventsFilterByCategory(eventos) {
 
-    //cartas 
+function renderFilter(){
+
+    //filtrar searh --> Devuelve los nombres - fechas - categorias de lo ingresado en searchbar
+    filtroSerach = events.filter(f => f.category.toLowerCase().includes(dataInput) 
+    || f.name.toLowerCase().includes(dataInput) 
+    || f.date.includes(dataInput))
+    //----------------------------------------------------------------------------//
+    //filtroCheck --> Devuelve los elementos chequeados
+    filtroCheck = events.filter(evento => checked.includes(evento.category))
+    //---------------------------------------------------------------------------//
+
+    //renderCard
+    if(filtroSerach.length > 0){
+        contenedorHome.innerHTML = createcards(filtroSerach)
+        let finalControl = filtroSerach.filter(e => e.category.includes(checked.toString()))
+        contenedorHome.innerHTML = createcards(finalControl)
+    } else if(filtroSerach == 0){
+        contenedorHome.innerHTML = `<section class="container-search-fail">
+                                        <h3 class="title-search-fail">Search Failed</h3>
+                                        <img class="img-search-fail" src="assets/img/pngwing.com.png" alt="image">
+                                        <p class="text-search-fail">sorry but "${dataInput}" not found</p>
+                                        <p class="text-search-fail">
+                                            Try to search by the title, date or category of the event
+                                            example: Food or Jurassic Park
+                                        </p>
+                                    </section>`
+        }
+    
+}
+
+
+// render
+createCategory(category)
+renderFilter()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+    if(filtroCheck.length > 0){
+        contenedorHome.innerHTML = createcards(filtroCheck)
+        if(filtroSerach.length < 34){
+            addcards(filtroSerach)
+        }
+    } else if(filtroCheck.length == 0){
+        createcards(events)
+    }
+    */
+
+
+
+
+
+
     /*
-    if (filtro.length > 0) {
-        contenedorHome.innerHTML = createcards(filtro)
-    } else if(filtro.length == 0) {
+    if(filtroSerach.length > 0 ){
+        contenedorHome.innerHTML = createcards(filtroSerach)
+        if(checked.length > 0){
+            contenedorHome.innerHTML = createcards(filtroCheck)
+        }
+    }else if(filtroSerach.length == 0){
         contenedorHome.innerHTML = `<section class="container-search-fail">
         <h3 class="title-search-fail">Search Failed</h3>
         <img class="img-search-fail" src="assets/img/pngwing.com.png" alt="image">
-        <p class="text-search-fail">sorry but "${datoInput}" not found</p>
+        <p class="text-search-fail">sorry but "${dataInput}" not found</p>
         <p class="text-search-fail">
             Try to search by the title, date or category of the event
             example: Food or Jurassic Park
         </p>
     </section>`
+    }else if(checked.length > 0){
+        contenedorHome.innerHTML = createcards(filtroCheck)
     }
     */
-
-    if (checked.length == 0) {
-        contenedorHome.innerHTML = createcards(eventos)
-
-    } else {
-        let rencheck = eventos.filter(evento => checked.includes(evento.category))
-        contenedorHome.innerHTML = createcards(rencheck)
-    } 
     
-}
-
-
-
-function checkboxCategory() {
-    let checkboxes = document.querySelectorAll("input[type=checkbox]")
-
-    for (let checkbox of checkboxes) {
-        checkbox.addEventListener("click", (e) => {
-
-            if (e.target.checked) {
-                checked.push(e.target.value)
-                EventsFilterByCategory(events)
-            } else {
-                checked = checked.filter(notcheck => notcheck !== e.target.value)
-                EventsFilterByCategory(events)
-            }
-        })
-    }
-}
-
-
-
-
-createCategory(categoryFilter(events))
-checkboxCategory()
-barSearch(events)
-
-contenedorHome.innerHTML = createcards(events)
-
