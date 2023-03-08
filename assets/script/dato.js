@@ -449,6 +449,7 @@ let data ={
   }
 
 const events = data.events
+const eventsCDate = data.currentDate
 const evName = events.map(e => e.name)
 const evDate = events.map(e => e.date)
 //--------------------//
@@ -459,6 +460,8 @@ const category = categorysfilter.reduce((c, e) => {
         }
         return c
     }, [])
+
+
 
 //-----------------//
 

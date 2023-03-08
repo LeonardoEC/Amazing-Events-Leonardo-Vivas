@@ -1,4 +1,4 @@
-let contenedorDetails = document.getElementById("container-main")
+let contenedorDetails = document.getElementById("container-main-details")
 
 function createcards_details(evento) {
 
@@ -29,4 +29,4 @@ function createcards_details(evento) {
     return card
 }
 
-contenedorDetails.innerHTML = createcards_details(data.events)
+contenedorDetails.innerHTML = createcards_details(events)

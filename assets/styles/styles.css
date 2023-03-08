@@ -164,6 +164,13 @@ a{
     background-color: #FFDCF4;
 }
 
+#container-main-details{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: #FFDCF4;
+}
+
 
 /* --------------------------------------------- */
 

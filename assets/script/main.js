@@ -7,7 +7,6 @@ const search = document.getElementById("serach")
 let dataInput = ""
 let filtroSerach = []
 let checked = []
-let minchecked = []
 let filtroCheck = [] 
 
 //-----------------------------------------------
@@ -22,16 +21,16 @@ search.addEventListener("keyup", (e) => {
 formCheck.addEventListener("click", e =>{
     if(e.target.checked){
         checked.push(e.target.value)
-        minchecked.push(e.target.value.toLowerCase())
+        //minchecked.push(e.target.value.toLowerCase())
     }
     else{
         checked = checked.filter(notCheck => notCheck !== e.target.value)
-        minchecked = minchecked.filter(notCheck => notCheck !== e.target.value.toLowerCase())
+        //minchecked = minchecked.filter(notCheck => notCheck !== e.target.value.toLowerCase())
     }
     renderFilter()
 })
-//---------------------------------------------
 
+//---------------------------------------------
 //funciones de render
 function createCategory(evento) {
 
@@ -89,7 +88,6 @@ function addcards(evento) {
     })
 }
 
-
 function renderFilter(){
 
     //filtrar searh --> Devuelve los nombres - fechas - categorias de lo ingresado en searchbar
@@ -117,10 +115,8 @@ function renderFilter(){
                                         </p>
                                     </section>`
         }
-    
 }
-
-
+//---------------------------------------------
 // render
 createCategory(category)
 renderFilter()
