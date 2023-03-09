@@ -104,6 +104,7 @@ function renderFilter(){
         contenedorHome.innerHTML = createcards(filtroSerach)
         let finalControl = filtroSerach.filter(e => e.category.includes(checked.toString()))
         contenedorHome.innerHTML = createcards(finalControl)
+        //contenedorHome.innerHTML = createcards(filtroCheck)
     } else if(filtroSerach == 0){
         contenedorHome.innerHTML = `<section class="container-search-fail">
                                         <h3 class="title-search-fail">Search Failed</h3>
@@ -114,6 +115,10 @@ function renderFilter(){
                                             example: Food or Jurassic Park
                                         </p>
                                     </section>`
+        } if(filtroCheck.length > 0){
+            contenedorHome.innerHTML = createcards(filtroCheck);
+            let finalControlBy = filtroCheck.filter(ch => ch.name.toLowerCase().includes(dataInput.toString()));
+            contenedorHome.innerHTML = createcards(finalControlBy);
         }
 }
 //---------------------------------------------
