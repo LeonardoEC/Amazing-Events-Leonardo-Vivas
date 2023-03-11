@@ -43,8 +43,7 @@ function createCategory(evento) {
 function createcards(evento){
 
     pasEvents = evento.filter(e =>e.date < eventsCDate)
-
-
+    
     let card = ""
     for(let eventos of pasEvents){
 
