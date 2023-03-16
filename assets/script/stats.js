@@ -10,7 +10,7 @@ fetch(url)
         name:ev.name,
         assistance: ev.assistance,
         capacity: ev.capacity,
-        percentage: Math.round((ev.assistance / ev.capacity ) * 100)
+        percentage: ((ev.assistance / ev.capacity ) * 100).toFixed(2)
     }})
 
     // Primera tabla
@@ -63,7 +63,6 @@ fetch(url)
         category: ev.category,
         capacity: ev.capacity,
         estimate: ev.estimate,
-        percentage: Math.round((ev.estimate / ev.capacity)*100),
         price: ev.price,
         revenues: ev.price * ev.estimate,
     }})
@@ -80,7 +79,7 @@ fetch(url)
             ucRaceR += x.revenues
             ucRaceC += x.capacity
             ucRaceE += x.estimate
-            ucRaceP = Math.round((ucRaceE / ucRaceC) * 100)
+            ucRaceP = ((ucRaceE / ucRaceC) * 100).toFixed(2)
             race = ["Race",ucRaceR,ucRaceP]
         }
     }
@@ -94,7 +93,7 @@ fetch(url)
             ucConcertR += x.revenues
             ucConcertC += x.capacity
             ucConcertE += x.estimate
-            ucConcertP = Math.round((ucConcertE / ucConcertC) * 100)
+            ucConcertP = ((ucConcertE / ucConcertC) * 100).toFixed(2)
             concert = ["Concert",ucConcertR,ucConcertP]
         }
     }
@@ -108,7 +107,7 @@ fetch(url)
             ucFoodR += x.revenues
             ucFoodC += x.capacity
             ucFoodE += x.estimate
-            ucFoodP = Math.round((ucFoodE / ucFoodC) * 100)
+            ucFoodP = ((ucFoodE / ucFoodC) * 100).toFixed(2)
             food = ["Food",ucFoodR,ucFoodP]
         }
     }
@@ -122,7 +121,7 @@ fetch(url)
             ucBooksR += x.revenues
             ucBooksC += x.capacity
             ucBooksE += x.estimate
-            ucBooksP = Math.round((ucBooksE / ucBooksC) * 100)
+            ucBooksP = ((ucBooksE / ucBooksC) * 100).toFixed(2)
             book = ["Books",ucBooksR,ucBooksP]
         }
     }
@@ -136,10 +135,11 @@ fetch(url)
             ucPartyR += x.revenues
             ucPartyC += x.capacity
             ucPartyE += x.estimate
-            ucPartyP = Math.round((ucPartyE / ucPartyC) * 100)
+            ucPartyP = ((ucPartyE / ucPartyC) * 100).toFixed(2)
             party = ["Party",ucPartyR,ucPartyP]
         }
     }
+
     // Museum
     let ucMuseumR = 0
     let ucMuseumC = 0
@@ -150,15 +150,10 @@ fetch(url)
             ucMuseumR += x.revenues
             ucMuseumC += x.capacity
             ucMuseumE += x.estimate
-            ucMuseumP = Math.round((ucMuseumE / ucMuseumC) * 100)
+            ucMuseumP = ((ucMuseumE / ucMuseumC) * 100).toFixed(2)
             museum = ["Museum",ucMuseumR,ucMuseumP]
-            console.log(ucMuseumR)
         }
     }
-    console.log(currentDate)
-    console.log(events)
-    console.log(ucMuseumR)
-    console.log(upCEvents)
 
 
 
@@ -239,7 +234,7 @@ fetch(url)
             pasRaceR += x.revenues
             pasRaceC += x.capacity
             pasRaceA += x.assistance
-            pasRaceP = Math.round((pasRaceA / pasRaceC) * 100)
+            pasRaceP = ((pasRaceA / pasRaceC) * 100).toFixed(2)
             pasrace = ["Race",pasRaceR,pasRaceP]
         }
     }
@@ -253,7 +248,7 @@ fetch(url)
             pasConcertR += x.revenues
             pasConcertC += x.capacity
             pasConcertA += x.assistance
-            pasConcertP = Math.round((pasConcertA / pasConcertC) * 100)
+            pasConcertP = ((pasConcertA / pasConcertC) * 100).toFixed(2)
             pasconcert = ["Concert",pasConcertR,pasConcertP]
         }
     }
@@ -267,7 +262,7 @@ fetch(url)
             pasucFoodR += x.revenues
             pasucFoodC += x.capacity
             pasucFoodA += x.assistance
-            pasucFoodP = Math.round((pasucFoodA / pasucFoodC) * 100)
+            pasucFoodP = ((pasucFoodA / pasucFoodC) * 100).toFixed(2)
             pasfood = ["Food",pasucFoodR,pasucFoodP]
         }
     }
@@ -281,7 +276,7 @@ fetch(url)
             pasBooksR += x.revenues
             pasBooksC += x.capacity
             pasBooksA += x.assistance
-            pasBooksP = Math.round((pasBooksA / pasBooksC) * 100)
+            pasBooksP = ((pasBooksA / pasBooksC) * 100).toFixed(2)
             pasbook = ["Books",pasBooksR,pasBooksP]
         }
     }
@@ -295,7 +290,7 @@ fetch(url)
             pasPartyR += x.revenues
             pasPartyC += x.capacity
             pasPartyA += x.assistance
-            pasPartyP = Math.round((pasPartyA / pasPartyC) * 100)
+            pasPartyP = ((pasPartyA / pasPartyC) * 100).toFixed(2)
             pasparty = ["Party",pasPartyR,pasPartyP]
         }
     }
@@ -309,7 +304,7 @@ fetch(url)
             pasMuseumR += x.revenues
             pasMuseumC += x.capacity
             pasMuseumA += x.assistance
-            pasMuseumP = Math.round((pasMuseumA / pasMuseumC) * 100)
+            pasMuseumP = ((pasMuseumA / pasMuseumC) * 100).toFixed(2)
             pasmuseum = ["Museum",pasMuseumR,pasMuseumP]
         }
     }
@@ -323,7 +318,7 @@ fetch(url)
             pasCinemaR += x.revenues
             pasCinemaC += x.capacity
             pasCinemaA += x.assistance
-            pasCinemaP = Math.round((pasCinemaA / pasCinemaC) * 100)
+            pasCinemaP = ((pasCinemaA / pasCinemaC) * 100).toFixed(2)
             pascinema = ["Cinema",pasCinemaR,pasCinemaP]
         }
     }
@@ -387,6 +382,22 @@ fetch(url)
         </tr>
     </tbody>
     `
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 })
 .catch(error => console.log(error))
