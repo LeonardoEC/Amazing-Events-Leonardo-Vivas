@@ -469,29 +469,32 @@ a{
 /* >>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<< */
 
 .container-stats{
-    margin: 2%;
     display: flex;
-    flex-direction: column;
-    align-self: center;
+    justify-content: center;
     box-shadow: 10px 10px 15px 2px #C1BBDD;
+    flex-wrap: wrap;
 }
 
 .stats-table{
-    width: 80vw;
+    margin: 1%;
     border-radius: 15px;
-    border: 2px solid rgba(128, 128, 128, 0.801);
     border: 1px solid #C1E7E3;
     background-color: #DCFFFB;
+    border-spacing: 5px;
 }
 
 .stats-table th{
+    border-radius: 15px;
     padding: 1%;
     background-color: #C1E7E3;
     font-weight: bold;
     font-size: 1.5rem;
+    width: 30%;
 }
 
 .stats-table td{
+    text-align: center;
+    border-radius: 0px 15px 10px 15px;
     border: 1px solid #C1E7E3;
     padding: 1%;
     background-color: #DCFFFB;

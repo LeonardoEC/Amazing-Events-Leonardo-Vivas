@@ -1,3 +1,19 @@
+const url = "https://mindhub-xj03.onrender.com/api/amazing"
+fetch(url)
+.then(res => res.json())
+.then(dato => {
+    let events = dato.events
+    let currentDate = dato.currentDate
+    let filtByName = events.map(ename => ename.name)
+    let filtByDate = events.map(edate => edate.date)
+    let eventCategory = events.map(ecategory => ecategory.category)
+    let filtByCategory = eventCategory.reduce((a,e) => {
+        if(!a.includes(e)){
+            a.push(e)
+        }
+        return a
+    },[])
+
 // posiciones en el html
 const contenedorHome = document.getElementById("container-main-bot-home") 
 const formCheck = document.getElementById("main-form")
@@ -13,7 +29,6 @@ let filtroCheck = []
 // Buscador
 search.addEventListener("keyup", (e) => {
     dataInput = e.target.value.toLowerCase()
-    
     renderFilter()
 })
 
@@ -44,6 +59,7 @@ function createCategory(evento) {
 }
 
 function createcards(evento) {
+    console.log(evento)
     let card = ""
     for (let eventos of evento) {
 
@@ -125,75 +141,8 @@ function renderFilter(){
 }
 //---------------------------------------------
 // render
-createCategory(category)
+createCategory(filtByCategory)
 renderFilter()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-    if(filtroCheck.length > 0){
-        contenedorHome.innerHTML = createcards(filtroCheck)
-        if(filtroSerach.length < 34){
-            addcards(filtroSerach)
-        }
-    } else if(filtroCheck.length == 0){
-        createcards(events)
-    }
-    */
-
-
-
-
-
-
-    /*
-    if(filtroSerach.length > 0 ){
-        contenedorHome.innerHTML = createcards(filtroSerach)
-        if(checked.length > 0){
-            contenedorHome.innerHTML = createcards(filtroCheck)
-        }
-    }else if(filtroSerach.length == 0){
-        contenedorHome.innerHTML = `<section class="container-search-fail">
-        <h3 class="title-search-fail">Search Failed</h3>
-        <img class="img-search-fail" src="assets/img/pngwing.com.png" alt="image">
-        <p class="text-search-fail">sorry but "${dataInput}" not found</p>
-        <p class="text-search-fail">
-            Try to search by the title, date or category of the event
-            example: Food or Jurassic Park
-        </p>
-    </section>`
-    }else if(checked.length > 0){
-        contenedorHome.innerHTML = createcards(filtroCheck)
-    }
-    */
-    
+})
+.catch(error => console.log(error))
