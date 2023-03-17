@@ -4,8 +4,6 @@ fetch(url)
 .then(dato => {
     let events = dato.events
     let currentDate = dato.currentDate
-    let filtByName = events.map(ename => ename.name)
-    let filtByDate = events.map(edate => edate.date)
     let eventCategory = events.map(ecategory => ecategory.category)
     let filtByCategory = eventCategory.reduce((a,e) => {
         if(!a.includes(e)){
