@@ -503,7 +503,7 @@ a{
     margin-bottom: 3%;
     border-radius: 15px;
     border: 1px solid #C1E7E3;
-    background-color: #DCFFFB;
+    background-color: #dcfffb8b;
     border-spacing: 5px;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.1),
     inset 0 0 1px rgba(255, 255, 255, 0.6);
@@ -513,7 +513,7 @@ a{
 .stats-table th{
     border-radius: 15px;
     padding: 1%;
-    background-color: #C1E7E3;
+    background-color: #c1e7e38b;
     font-weight: bold;
     font-size: 1.5rem;
     width: 30%;
@@ -524,7 +524,7 @@ a{
     border-radius: 0px 15px;
     border: 1px solid #C1E7E3;
     padding: 1%;
-    background-color: #DCFFFB;
+    background-color: #dcfffb8b;
 }
 
 

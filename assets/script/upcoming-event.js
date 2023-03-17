@@ -23,7 +23,6 @@ fetch(url)
     let dataInput = ""
     let filtroSerach = []
     let checked = []
-    let minchecked = []
     let filtroCheck = [] 
     
     // Buscador

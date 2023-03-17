@@ -14,7 +14,7 @@ fetch(url)
         const id = params.get("id")
         const details = evento.find(d => d._id == id)
         let card
-    
+
         if(details.date < currentDate){
             card = `<section class="container-details">
                     <figure class="details-left">
@@ -56,7 +56,6 @@ fetch(url)
         }
         return card
     }
-    
     contenedorDetails.innerHTML = createcards_details(events)
 
 })
