@@ -3,9 +3,6 @@ fetch(url)
 .then(res => res.json())
 .then(dato => {
     let events = dato.events
-    let currentDate = dato.currentDate
-    let filtByName = events.map(ename => ename.name)
-    let filtByDate = events.map(edate => edate.date)
     let eventCategory = events.map(ecategory => ecategory.category)
     let filtByCategory = eventCategory.reduce((a,e) => {
         if(!a.includes(e)){
@@ -59,7 +56,6 @@ function createCategory(evento) {
 }
 
 function createcards(evento) {
-    console.log(evento)
     let card = ""
     for (let eventos of evento) {
 
@@ -125,7 +121,7 @@ function renderFilter(){
     else if(filtroSerach == 0){
         contenedorHome.innerHTML = `<section class="container-search-fail">
                                         <h3 class="title-search-fail">Search Failed</h3>
-                                        <img class="img-search-fail" src="assets/img/pngwing.com.png" alt="image">
+                                        <img class="img-search-fail" src="assets/img/AmazingNotFound.png" alt="image">
                                         <p class="text-search-fail">sorry but "${dataInput}" not found</p>
                                         <p class="text-search-fail">
                                             Try to search by the title, date or category of the event

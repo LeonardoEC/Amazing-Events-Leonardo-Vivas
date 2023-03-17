@@ -4,15 +4,6 @@ fetch(url)
 .then(dato => {
     let events = dato.events
     let currentDate = dato.currentDate
-    let filtByName = events.map(ename => ename.name)
-    let filtByDate = events.map(edate => edate.date)
-    let eventCategory = events.map(ecategory => ecategory.category)
-    let filtByCategory = eventCategory.reduce((a,e) => {
-        if(!a.includes(e)){
-            a.push(e)
-        }
-        return a
-    },[])
 
     let contenedorDetails = document.getElementById("container-main-details")
 
@@ -31,19 +22,19 @@ fetch(url)
                     </figure>
                     <article class="details-right">
                         <h2 class="details-title">${details.name}</h2>
+                        <p class="details-text">${details.description}</p>
                         <p class="details-text"><span class= "items">Category:</span> ${details.category}</p>
                         <p class="details-text"><span class= "items">Date:</span> ${details.date}</p>
                         <p class="details-text"><span class= "items">Place:</span> ${details.place}</p>
                         <p class="details-text"><span class= "items">Capacity:</span> ${details.capacity}</p>
                         <p class="details-text"><span class= "items">Assistance: </span>${details.assistance}</p>
-                        <p class="details-text">${details.description}</p>
                         <p class="details-text"><span class= "items">Price: </span> $${details.price}</p>
                         <div class="cont-det-but">
                             <button class= "but-details"><a href="../index.html">Home</a></button>
                         </div>
                     </article>
                 </section>`
-        } else if(details.date > eventsCDate){
+        } else if(details.date > currentDate){
             card = `<section class="container-details">
                     <figure class="details-left">
                         <img class="details-img" src="${details.image}" alt="photo">
