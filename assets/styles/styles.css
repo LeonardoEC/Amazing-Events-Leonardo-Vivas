@@ -350,7 +350,7 @@ a{
 
 .form-contact{
     border: 1px solid #C1E7E3;
-    background-color: #DCFFFB;
+    background-color: #dcfffb8b;
     padding: 1%;
     display: flex;
     align-items: center;
@@ -445,6 +445,15 @@ a{
     border-radius: 15px;
     border: 2px solid #c1e7e377;
     background-color: #dcfffb8d;
+}
+.details-pas{
+    padding: 3%;
+    margin: 1%;
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    color: white;
+    background-color: rgba(255, 0, 0, 0.659);
 }
 
 .details-title{

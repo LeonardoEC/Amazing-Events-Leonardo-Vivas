@@ -22,6 +22,7 @@ fetch(url)
                     </figure>
                     <article class="details-right">
                         <h2 class="details-title">${details.name}</h2>
+                        <h4 class="details-pas">Past Event</h4>
                         <p class="details-text">${details.description}</p>
                         <p class="details-text"><span class= "items">Category:</span> ${details.category}</p>
                         <p class="details-text"><span class= "items">Date:</span> ${details.date}</p>

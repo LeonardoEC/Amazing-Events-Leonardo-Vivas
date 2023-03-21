@@ -99,7 +99,7 @@ fetch(url)
         } else if(filtroSerach == 0){
             contenedorPast.innerHTML = `<section class="container-search-fail">
                                             <h3 class="title-search-fail">Search Failed</h3>
-                                            <img class="img-search-fail" src="../assets/img/pngwing.com.png" alt="image">
+                                            <img class="img-search-fail" src="../assets/img/AmazingNotFound.png" alt="image">
                                             <p class="text-search-fail">sorry but "${dataInput}" not found</p>
                                             <p class="text-search-fail">
                                                 Try to search by the title, date or category of the event

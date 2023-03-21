@@ -52,12 +52,11 @@ fetch(url)
         capacity: ev.capacity,
         estimate: ev.estimate,
         price: ev.price,
-        revenues: ev.price * ev.estimate,
+        revenues: ev.price * ev.estimate
     }})
 
     //---------------------------------------------------------------------------
     
-
     // Mapeo de categorias
     const upCMapCategorias = upCEvents.map((upccat) => upccat.category)
     // Unificacion de categorias
@@ -129,6 +128,7 @@ fetch(url)
         </tr>
     `
     //--------------------------------------------------------------------------------//
+
     // Esta constante filtra los eventos por fecha -> Past-events
     const pastEvents = events.filter(ev => ev.date < currentDate).map(ev => {return{
         name: ev.name,
@@ -219,5 +219,11 @@ fetch(url)
     `
 })
 .catch(error => console.log(error))
+
+
+
+
+
+
 
 
