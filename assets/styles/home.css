@@ -1,0 +1,95 @@
+.container__home{
+    margin: 0 auto;
+    padding-top: 2%;
+    width: 95%;
+}
+
+.searchBar__container{
+    margin: 20px 0;
+    width: 50%;
+}
+
+.serachBar{
+    padding: 0.5% 0;
+    width: 100%;
+    border-radius: 10px;
+    text-align: center;
+    border-color: rgba(0, 0, 0, 0.197);
+}
+
+.category__container{
+    margin: 0% auto;
+    display: flex;
+    gap: 10px;
+}
+
+.card__container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    place-items: center;
+    margin: 2% 0%;
+    gap: 10px;
+}
+
+.card{
+    background-color: #c1bbdd62;
+    height: 455px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.cardimg__container{
+    margin-bottom: 5px;
+}
+
+.card__img{
+    width: 100%;
+    height: 200px;
+    border-radius: 0px 0px 15px 15px;
+}
+
+.cardTop__container{
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.cardMid__container{
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
+    padding: 0% 2%;
+}
+
+.cardparagraph__container{
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limita el texto a 3 líneas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-align: justify;
+}
+
+.cont_pricen_and_category{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+
+
+.cardBot__container{
+    width: 100%;
+}
+
+.card__button{
+    font-size: 1.1rem;
+    width: 100%;
+    padding: 2%;
+    border: none;
+    background-color: #c1bbdd62;
+}
