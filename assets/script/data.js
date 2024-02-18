@@ -26,6 +26,7 @@ async function events() {
     // propiedades de pasado
     for (let dateEvents of EVENTS) {
         if (dateEvents.date <= CURRENT__EVENTS) {
+            dateEvents.time = "past"
             dateEvents.assistancepercentage = Number(((dateEvents.assistance / dateEvents.capacity) * 100).toFixed(2))
             dateEvents.revenues = dateEvents.price * dateEvents.assistance
         }
@@ -34,10 +35,12 @@ async function events() {
     // propiedades de futuro
     for (let dateEvents of EVENTS) {
         if (dateEvents.date >= CURRENT__EVENTS) {
+            dateEvents.time = "upcoming"
             dateEvents.estimatepercentage = Number(((dateEvents.estimate / dateEvents.capacity) * 100).toFixed(2))
             dateEvents.revenues = dateEvents.price * dateEvents.estimate
         }
     }
+
     return EVENTS
 }
 
@@ -154,8 +157,6 @@ async function statisticsPastEventsByCategory() {
             statistics[category].assistancePercentage = Number(((statistics[category].totalAssistance / statistics[category].totalCapacity) * 100).toFixed(2));
         }
     }
-
-    console.log(statistics)
 }
 
 async function statisticsUpComingEventsByCategory() {
@@ -180,8 +181,6 @@ async function statisticsUpComingEventsByCategory() {
             statistics[category].estimatePercentage = Number(((statistics[category].totalEstimate / statistics[category].totalCapacity) * 100).toFixed(2));
         }
     }
-
-    console.log(statistics)
 }
 
 

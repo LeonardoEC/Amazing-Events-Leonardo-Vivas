@@ -2,24 +2,18 @@ import { events, getEventCategory } from "./data.js";
 
 const category__container = document.getElementById("category__container")
 const card__container = document.getElementById("card__container")
+const searchBar = document.getElementById("searchBar")
 
-
-async function mainHome() {
-    const CATEGORY = await getEventCategory()
-    const EVENTS = await events()
-
-    console.log(EVENTS)
-
-    renderCategory(CATEGORY)
-    renderCard(EVENTS)
-}
-
+// Render
 async function renderCategory(categorias) {
 
     for (let intemCheck of categorias) {
 
         let checkbox = `
-        <input type="checkbox"> ${intemCheck}
+        <label>
+            <input class="checkItem" type="checkbox" value=${intemCheck} name=${intemCheck}>
+            ${intemCheck}
+        </label>
     `
 
         category__container.innerHTML += checkbox
@@ -31,6 +25,7 @@ async function renderCard(event) {
         let card = `
         <div class="card">
             <div class="cardTop__container">
+            ${item.time == "past" ? "" : "<h3>EVENT FINISHED</h3>"}
                 <figure class="cardimg__container">
                     <img class="card__img" src="${item.image}" alt="">
                 </figure>
@@ -61,16 +56,51 @@ async function renderCard(event) {
             <div class="cardBot__container">
                 <button class="card__button">Detalles</button>
             </div>
-
         </div>
         `
 
-                    // <div class="cardBot__container">
-            //     <button class="card__button">Detalles</button>
-            // </div>
 
         card__container.innerHTML += card
     }
 }
+
+// funcion principal
+async function mainHome() {
+    const CATEGORY = await getEventCategory()
+    const EVENTS = await events()
+
+    // DataSearch
+    let dataInput = "";
+    searchBar.addEventListener("keyup", (e) => {
+        dataInput = e.target.value.toLowerCase();
+        processData(dataInput); 
+    });
+
+    function processData(input) {
+
+        let searchFilter = EVENTS.filter(e => e.name.toLowerCase().includes(input))
+
+        console.log(searchFilter)
+
+        if(input === undefined){
+            renderCard(EVENTS)
+        } else if (searchFilter.length == 0){
+            card__container.innerHTML = "no encontre nada"
+        } else {
+            card__container.innerHTML = ""
+            renderCard(searchFilter)
+        }
+    }
+    
+
+
+
+    renderCategory(CATEGORY)
+    
+    processData()
+
+}
+
+
 
 mainHome()
