@@ -1,0 +1,20 @@
+.searchBar__container{
+    margin: 0.5% 0%;
+}
+
+.searchBar{
+    display: flex;
+    margin: auto;
+    padding: 0.5% 0;
+    width: 90%;
+    border-radius: 10px;
+    text-align: center;
+    border-color: rgba(0, 0, 0, 0.197);
+}
+
+.category__container{
+    display: flex;
+    justify-content: space-around;
+    margin: 1% 0%;
+
+}

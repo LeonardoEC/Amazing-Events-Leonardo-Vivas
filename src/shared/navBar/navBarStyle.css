@@ -1,0 +1,19 @@
+.nav__container{
+    display: flex;
+    justify-content: end;
+    flex-wrap: wrap;
+    height: 100%;
+    gap: 10px;
+}
+
+.nav__btn{
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    width: 200px;
+    text-decoration: none;
+    border: none;
+    border-radius: 7px;
+    background-color: #9e4eff50;
+    color: white;
+}

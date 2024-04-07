@@ -1,0 +1,38 @@
+
+.hero__container{
+    padding: 0% 10%;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    place-items: center;
+    height: 88vh;
+}
+
+.hero__title{
+    margin: 20px 0;
+}
+
+.hero__paragraph{
+    margin: 20px 0;
+}
+
+
+.hero__btn{
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.1rem;
+    padding: 2%;
+    border-radius: 15px;
+    border: none;
+    background-color: #790cff78;
+    font-weight: bold;
+    color: white;
+}
+
+.heroimg__container{
+    text-align: center;
+}
+
+.hero__img{
+    width: 500px;
+    height: 500px;
+}

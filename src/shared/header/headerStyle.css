@@ -1,0 +1,14 @@
+.btn__header{
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+}
+
+.header__img{
+    transition: 1s;
+    width: 300px;
+    filter: drop-shadow(10px 8px 5px #754aaa);
+}
+
+.header__img:hover{
+    filter: none
+}

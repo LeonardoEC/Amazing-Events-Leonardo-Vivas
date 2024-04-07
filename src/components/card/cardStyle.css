@@ -1,0 +1,85 @@
+.card__container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    place-items: center;
+    padding: 1%;
+    gap: 35px;
+}
+
+.card{
+    background-color: #c1bbdd;
+    height: 455px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 15px;
+    /* box-shadow: 10px 10px 15px 5px #dfb2e1; */
+}
+
+
+
+
+.cardimg__container{
+    margin-bottom: 5px;
+}
+
+
+.card__img{
+    width: 100%;
+    height: 200px;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.cardTop__container{
+    text-align: center;
+    margin-bottom: 5px;
+    font-style: italic;
+}
+
+.cardTop__container > h3{
+    position: absolute;
+    width: 350px;
+    background-color: red;
+    color: white;
+    letter-spacing: 2px;
+    border-radius: 0 0 5px 5px;
+}
+
+.cardMid__container{
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
+    padding: 0% 5%;
+    margin-bottom: 5px;
+}
+
+.cardparagraph__container{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-align: justify;
+}
+
+.cont_pricen_and_category{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.cardBot__container{
+    width: 100%;
+}
+
+.card__button{
+    font-size: 1.1rem;
+    width: 100%;
+    padding: 2%;
+    border: none;
+    border-radius: 0px 0px 15px 15px;
+    cursor: pointer;
+    background-color: rgba(245, 222, 179, 0.153);
+}

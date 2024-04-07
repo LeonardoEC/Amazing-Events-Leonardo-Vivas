@@ -1,0 +1,7 @@
+.homeComponent__container{
+    height: 100vh;
+}
+
+.homeComponent__bottomArea{
+    display: flex;
+}
