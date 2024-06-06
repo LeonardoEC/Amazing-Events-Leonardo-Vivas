@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="../assets/styles/home.css">
     <title>Document</title>
 </head>
+
 <body>
     <header class="header__container">
         <figure>
@@ -14,14 +16,17 @@
                 <img class="header__img" src="../assets/img/Logo-Amazing-Events.png" alt="">
             </a>
         </figure>
-        <nav class="nav__container" id="nav__container"></nav>
+        <nav class="nav__container" id="nav__container">
+            <a class="nav__btn active" href="#">Home</a>
+            <a class="nav__btn" href="upcoming-events.html">Upcoming-events</a>
+            <a class="nav__btn" href="past-events.html">Past-events</a>
+            <a class="nav__btn" href="stats.html">Stats</a>
+            <a class="nav__btn" href="contact-us.html">Contact-us</a>
+        </nav>
     </header>
 
     <section class="container__home container">
-        <h1 class="title title__home">AmaisinEvents</h1>
-        <p class="paragraph">
-            Los mejores eventos te esperan,
-        </p>
+        <h2 class="title title__home">Home</h2>
         <div class="searchBar__container">
             <input id="searchBar" class="searchBar" type="text" placeholder="Title - Category - Date">
         </div>
@@ -38,7 +43,8 @@
     <footer>
         <p>Leonardo Daniel Vivas | Amaicins Events | MindHub </p>
     </footer>
-    <script src="/assets/script/index.js" type="module"></script>
-    <script src="../assets/script/home.js" type="module"></script>
+    <script src="../assets/script/index.js"></script>
+    <script src="../assets/script/home.js"></script>
 </body>
+
 </html>

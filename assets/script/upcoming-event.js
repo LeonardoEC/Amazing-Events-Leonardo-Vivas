@@ -13,10 +13,10 @@ fetch(url)
     },[])
 
 
-    let contenedorUpcoming = document.getElementById("container-main-bot-upcoming-events")
-    const formCheck = document.getElementById("main-form")
+    let contenedorUpcoming = document.getElementById("card__container")
+    const formCheck = document.getElementById("category__container")
     
-    const search = document.getElementById("serach")
+    const search = document.getElementById("searchBar")
     
     let dataInput = ""
     let filtroSerach = []
@@ -58,23 +58,41 @@ fetch(url)
         let upCEvents = evento.filter(e => e.date > currentDate)
     
         let card = ""
-        for(let eventos of upCEvents){
+        for(let item of upCEvents){
     
-                card += `<section id="card">
-                            <figure>
-                                <img class="card-body-img" src="${eventos.image}" alt="">
-                            </figure>
-                            <div class="card-body-top">
-                                <h2 class="card-title">${eventos.name}</h2>
-                                <p class="card-category">Category: ${eventos.category}</p>
-                                <p class="card-date">${eventos.date}</p>
-                                <p class="card-descr">${eventos.description}</p>
-                            </div>
-                            <div class="card-body-bot">
-                                <p>$ ${eventos.price}</p>
-                                <button class="card-but"><a href="details.html?id=${eventos._id}">More Info</a></button>
-                            </div>
-                        </section>`
+                card += `<div class="card">
+            <div class="cardTop__container">
+                <figure class="cardimg__container">
+                    <img class="card__img" src="${item.image}" alt="">
+                </figure>
+                <section>
+                    <h2>${item.name}</h2>
+                    <p>${item.date}</p>
+                </section>
+            </div>
+
+            <div class="cardMid__container">
+                <div class="cardparagraph__container">
+                    <p class="card__paragraph">${item.description}</p>
+                </div>
+                <div class="cont_pricen_and_category">
+                    <p>
+                        Place: ${item.place}
+                    </p>
+                    <p>
+                        Category: ${item.category}
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Price: $${item.price}
+                    </p>
+                </div>
+            </div>
+            <div class="cardBot__container">
+                <button class="card__button">Detalles</button>
+            </div>
+        </div>`
     
                     }
                     return card

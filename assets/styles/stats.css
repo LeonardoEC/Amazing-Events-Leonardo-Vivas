@@ -1,0 +1,35 @@
+.container-stats{
+    display: flex;
+    justify-content: center;
+    box-shadow: 10px 10px 15px 2px #C1BBDD;
+    flex-wrap: wrap;
+}
+
+.stats-table{
+    margin: 2%;
+    margin-bottom: 3%;
+    border-radius: 15px;
+    border: 1px solid #C1E7E3;
+    background-color: #dcfffb8b;
+    border-spacing: 5px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.1),
+    inset 0 0 1px rgba(255, 255, 255, 0.6);
+    filter: drop-shadow(10px 8px 5px #7b97b4);
+}
+
+.stats-table th{
+    border-radius: 15px;
+    padding: 1%;
+    background-color: #c1e7e38b;
+    font-weight: bold;
+    font-size: 1.5rem;
+    width: 30%;
+}
+
+.stats-table td{
+    text-align: center;
+    border-radius: 0px 15px;
+    border: 1px solid #C1E7E3;
+    padding: 1%;
+    background-color: #dcfffb8b;
+}

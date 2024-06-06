@@ -1,9 +1,12 @@
 .hero__container{
-    padding: 0% 10%;
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    place-items: center;
-    height: 88vh;
+    display: flex;
+    align-items: center;
+}
+
+.text__container{
+    display: inline;
+    flex-direction: column;
+    padding: 5%;
 }
 
 .hero__title{
@@ -27,11 +30,32 @@
     color: white;
 }
 
+.hero__btn:hover{
+    cursor: pointer;
+    background-color: #9e4efff4;
+}
+
 .heroimg__container{
     text-align: center;
+    padding: 5%;
 }
 
 .hero__img{
-    width: 500px;
-    height: 500px;
+    width: 35rem;
+    height: 35rem;
+}
+
+@media screen and (min-width: 180px) and (max-width: 1180px){
+    .hero__container{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        text-align: center;
+    }
+
+    .hero__img{
+        width: 300px;
+        height: 300px;
+    }
+
 }

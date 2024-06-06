@@ -10,24 +10,25 @@
 
 .searchBar__container{
     margin: 0.5% 0%;
+    display: flex;
+    justify-content: center;
 }
 
 .searchBar{
     padding: 0.5% 0;
-    width: 100%;
+    width: 70%;
     border-radius: 10px;
     text-align: center;
     border-color: rgba(0, 0, 0, 0.197);
 }
 
 .category__container{
+    width: 85%;
     display: flex;
     justify-content: space-around;
-    margin: 1% 0%;
+    text-align: center;
+    margin: 2% auto;
 
-}
-
-.checkItem{
 }
 
 /* =============================================================== */
@@ -35,11 +36,10 @@
 /* Cartas */
 
 .card__container{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-    place-items: center;
-    margin: 1.5% 0%;
-    gap: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .card{
