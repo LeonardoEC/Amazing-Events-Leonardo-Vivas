@@ -113,7 +113,7 @@ fetch(url)
                 </div>
             </div>
             <div class="cardBot__container">
-                <button class="card__button">Detalles</button>
+                <button class="card__button"><a class="btn_more_info" href="../pages/details.html?id=${item._id}">More Info</a></button>
             </div>
         </div>`
             }
